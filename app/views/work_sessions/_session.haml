@@ -1,0 +1,13 @@
+%tr
+	%td=session.date
+	%td=session.description
+	%td=session.start
+	%td=session.ende
+	-if session.ende
+		%td=((session.ende.to_f-session.start.to_f)/60).round 2
+	-else
+		%td=((Time.now.to_f-session.start.to_f)/60).round 2
+	-if session.profit
+		%td=session.profit.round(2).to_s+"€"
+	-else
+		%td="0,00€"

@@ -1,0 +1,14 @@
+#Clients_from_account
+	#show_all_clients
+		%h4="All Clients"
+		%nav
+			=button_to "new Client", url(:clients, :new), method: :get, class: :button
+
+		%table
+			%tr
+				%th="company"
+				%th="address"
+				%th="pay"
+				%th="active"
+				%th="actions"
+			=partial "clients/client", collection: @clients

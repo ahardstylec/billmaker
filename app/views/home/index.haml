@@ -1,0 +1,26 @@
+/ #menu=partial "menu"
+#content_head
+	-unless @client
+		:javascript
+			$("#conten_head").addClass('no_client')
+		=link_to "Neuen Client anlegen", url(:clients, :new_account_client), class: :no_client
+	-else	
+		#client_container
+			.content
+				=partial "/clients/activeclient", object: @client	
+		#all_sessions
+			%h3="All Work Sessions for "+@client.company
+			%table
+				%tr
+					%th="Date"
+					%th="Description"
+					%th="Begin"
+					%th="Ende"
+					%th="Arbeitszeit"
+					%th="Lohn"
+				-if @work_sessions	
+					=partial "/work_sessions/session", collection: @work_sessions
+				-else
+					%tr
+						%td{colspan: 5}="Keine Sessions vorhanden"
+						

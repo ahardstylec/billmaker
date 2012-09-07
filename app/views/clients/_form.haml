@@ -1,0 +1,27 @@
+= f.error_messages
+%table
+	%tr
+		%td.label=f.label :company	
+		%td=f.text_field :company
+	%tr
+		%td.label=f.label :clientname
+		%td=f.text_field :clientname	
+	%tr
+		%td.label=f.label :street
+		%td=f.text_field :street
+	%tr
+		%td.label=f.label :plz
+		%td=f.text_field :plz, class: :plz
+	%tr
+		%td.label=f.label :city
+		%td=f.text_field :city			
+	%tr
+		%td.label=f.label :pay
+		%td
+			=f.text_field :pay, class: :pay
+			="€"
+	%tr
+		%td.label=f.label :status
+		%td=f.check_box :status
+%p
+	=f.submit

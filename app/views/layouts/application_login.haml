@@ -1,0 +1,28 @@
+!!! Strict
+%html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+	%head
+		=stylesheet_link_tag 'general'
+		=stylesheet_link_tag 'application'
+	%body
+		#head
+			#head_title
+				%h1{id: :Siteheader}="Billmaker"
+		#head_end					
+		%container
+			%menu
+			%content
+				=yield
+:plain
+	<script type="text/javascript" src="https://www.google.com/jsapi">
+	</script>
+	<script type="text/javascript">
+		google.load("webfont", "1");
+		google.setOnLoadCallback(function() {
+			WebFont.load({
+			  google: {
+				families: [ 'Headland One','Terminal Dosis','Special Elite' ]
+			  }
+			  });
+			});
+	</script>
+

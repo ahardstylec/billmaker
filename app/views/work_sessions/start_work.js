@@ -1,0 +1,1 @@
+alert('new session started<br>'+'starttime: '+worksession.start);

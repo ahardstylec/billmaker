@@ -1,0 +1,5 @@
+#new_client_container
+	#new_client_content
+		%h4="Neuer Client"
+		-form_for @client, url(:clients, :create_client_for_user) do |f|
+			= partial "clients/form", locals: {f: f}

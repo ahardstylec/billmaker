@@ -1,0 +1,8 @@
+#new_client_container
+	%nav
+		=button_to "zurück", url(:clients, :index), method: :get, class: :button
+	#new_client_content
+		%h4="Client bearbeiten"		
+
+		-form_for @client, url(:clients, :update, id: @client.id) do |f|
+			= partial "clients/form", locals: {f: f}

@@ -1,0 +1,48 @@
+#client_description
+	#client_infos
+		#change_client
+			%h3="Current Client: "
+			#select
+				=select_tag(:clients, options: current_account.clients.sort(:status).collect{ |client| [client.company, client.id] }, id: :clients)
+			#button
+				=button_tag "set as current client", onclick: "change_current_client()"
+		%p="Firmenname: "+label_tag(activeclient.company) 
+		%p="Straße, Hausnummer: "+label_tag(activeclient.street)
+		%p="Postleitzahl Ort: "+label_tag(activeclient.plz+" "+activeclient.city)
+
+		%p="Lohn "+label_tag(activeclient.pay.to_s+"€")
+		#worksession_infos
+			-if @activesession
+				%p#worksession_infos_inner
+					%h3="Aktuelle Work Session:"
+					%p
+						%p
+							="Begin: "+label_tag(@activesession.start)
+						="Abgelaufene Zeit: "#+((Time.now-@activesession.start).round(0)/3600).to_s+":"+(((Time.now-@activesession.start).round(0)/60)%60).to_s
+						%span#tick
+						%br
+						="Aktuelles Entgeld für Session: "
+						%span.money=#(((Time.now - @activesession.start)/3600)*11).round(2).to_s+" €"
+				=hidden_field_tag :activesession, id: :activesession, value: @activesession.id
+				:javascript
+					//var sessionstart = new Date("#{@activesession.start.to_js}")
+					show_timer();
+			-else
+				:javascript
+					$(".end_work").attr("disabled", "disabled");
+				="Gerade ist keine Work Session aktiv"
+				=hidden_field_tag :activesession, id: :activesession, value: ""
+	#work_switch
+		-if @activesession
+			=form_tag "clients/start_work", remote: true, id: :start_form do
+				=link_to "<img src='images/bussy64.png' class='start_img' data-other-src='images/start64.png' />","", class: :start_work
+			=form_tag "clients/end_work", remote: true, id: :end_form do
+				=link_to "<img src='images/finish64.png' class='end_img' data-other-src='images/bussy64.png' />","", class: :end_work
+		-else
+			=form_tag "clients/start_work", remote: true, id: :start_form do
+				=link_to "<img src='images/start64.png' class='start_img' data-other-src='images/bussy64.png' />","", class: :start_work
+			=form_tag "clients/end_work", remote: true, id: :end_form do
+				=link_to "<img src='images/bussy64.png' class='end_img' data-other-src='images/finish64.png' />","", class: :end_work
+
+:javascript
+	$("select#clients").val("#{activeclient.id.to_s}")

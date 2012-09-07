@@ -1,0 +1,12 @@
+#login_content
+	%h1.loginhead="Login"
+	%login_form
+		%table
+			%tr
+				%td.label=label_tag :email
+				%td=text_field_tag :email, :value => params[:email], :class => :text_field
+			%tr
+				%td.label=label_tag :password
+				%td=password_field_tag :password, :value => params[:password], :class => :text_field
+		%p
+			=submit_tag('Sign In', :class => :button)
