@@ -1,0 +1,21 @@
+h1 {
+  width: auto; }
+
+h2 {
+  width: auto; }
+
+h3 {
+  width: auto; }
+
+h4 {
+  width: auto; }
+
+a {
+  text-decoration: none;
+  background: transparent; }
+
+a:hover {
+  background: transparent; }
+
+body {
+  background-image: url("/images/background.jpg"); }

@@ -1,0 +1,21 @@
+@import 'general.sass'
+
+#bills
+	text-align: center
+
+	#bills_content
+		@include box(vertical)
+		text-align: left
+		
+		@include smooth_div()
+		@include box_align(left)
+
+		td,th
+			padding-left: 10px
+		td.last
+			@include box(horizontal)
+			input[type=submit]
+				margin-right: 5px
+			
+			input[type=button]
+				margin-right: 5px

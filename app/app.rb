@@ -65,7 +65,10 @@ class Billmaker < Padrino::Application
 
   access_control.roles_for :user do |role|
     role.allow "home"
+    role.allow "bills"
     role.allow "clients"
+    role.allow "/bills/create"
+    role.allow "/bills/edit"
     role.allow "/login/destroy"
   end  
 

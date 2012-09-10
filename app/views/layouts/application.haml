@@ -4,9 +4,11 @@
 		=stylesheet_link_tag 'general'
 		=stylesheet_link_tag 'home'
 		=stylesheet_link_tag 'application'
+		=stylesheet_link_tag 'bill'
 		=stylesheet_link_tag 'client'
 
 		=javascript_include_tag 'jquery'
+		=javascript_include_tag 'bill'
 		=javascript_include_tag 'home'
 		-# =stylesheet_link_tag 'application_login', 'application', 'layout'
 		-# =stylesheet_link_tag 'general', 'application', 'layout'
@@ -16,11 +18,9 @@
 			#head_title
 				%h1{id: :Siteheader}="Billmaker"
 				%nav
-					=link_to "home", url(:home, :index)
-					= "|"
+					=link_to "home", url(:home, :index)#, class: :nav_first
 					=link_to "clients", url(:clients,:index)
-					= "|"
-					=link_to "bills", url(:bills, :index)
+					=link_to "bills", url(:bills, :index), class: :last
 			#head_logout
 				#head_logout_content
 					.accountname=current_account.name

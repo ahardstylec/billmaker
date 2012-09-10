@@ -1,1 +1,45 @@
+@import 'general.sass'
 
+#Clients_from_account
+	text-align: center
+	
+	#show_all_clients
+		text-align: left
+		@include smooth_div()
+		@include box(vertical)
+		margin: 20px auto
+
+		table
+			margin-top: 20px
+			//border-spacing: 10px 5px
+			border-collapse: collapse
+			td.last
+				@include box(horizontal)
+
+				delete_button
+					margin-left: 5px
+			tr.status_true
+				padding: 3px
+				border-radius: 3px
+				background-color: rgba(0,0,100,0.2)
+			td, th
+				padding: 3px 0px
+				padding-left: 20px
+			td.first, th.first
+				padding-left: 0px
+
+#new_client_container
+	text-align: center
+
+	#new_client_content
+		@include box(vertical)
+		@include smooth_div()
+		padding-left: 30px
+		padding-right: 30px
+		text-align: left
+		input[type=text]
+			width: 12em
+		input[type=text].pay
+			width: 2.5em
+		input[type=text].plz
+			width: 2.5em

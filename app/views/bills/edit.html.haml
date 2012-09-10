@@ -1,0 +1,5 @@
+#bills_edit
+	#bills_edit_content
+		%h4="Bill: "+@bill.billnr
+		-form_for @bill, url(:bills, :update, id: @bill.id) do |f|
+			=partial "bills/form", locals: {f: f}

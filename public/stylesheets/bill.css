@@ -1,0 +1,53 @@
+h1 {
+  width: auto; }
+
+h2 {
+  width: auto; }
+
+h3 {
+  width: auto; }
+
+h4 {
+  width: auto; }
+
+a {
+  text-decoration: none;
+  background: transparent; }
+
+a:hover {
+  background: transparent; }
+
+body {
+  background-image: url("/images/background.jpg"); }
+
+#bills {
+  text-align: center; }
+  #bills #bills_content {
+    display: box;
+    display: -moz-box;
+    display: -webkit-box;
+    box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    box-align: left;
+    -moz-box-align: left;
+    -webkit-box-align: left; }
+    #bills #bills_content td, #bills #bills_content th {
+      padding-left: 10px; }
+    #bills #bills_content td.last {
+      display: box;
+      display: -moz-box;
+      display: -webkit-box;
+      box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      -webkit-box-orient: horizontal; }
+      #bills #bills_content td.last input[type=submit] {
+        margin-right: 5px; }
+      #bills #bills_content td.last input[type=button] {
+        margin-right: 5px; }

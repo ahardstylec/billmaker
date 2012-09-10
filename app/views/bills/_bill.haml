@@ -1,0 +1,9 @@
+%tr
+	%td=bill.billnr
+	%td=bill.month.to_s+"."+bill.year.to_s
+	%td=bill.get_hours
+	%td=bill.bill
+	%td.last
+		=button_tag "pdf", onclick: "printBill()"
+		=button_to "edit", url(:bills, :edit, id: bill.id), method: :get
+		=button_to "delete", url(:bills, :destroy, id: bill.id), method: :delete, onclick: "return sure?()"

@@ -1,0 +1,49 @@
+@import 'general.sass'
+
+#content_head
+	a.no_client
+	a.no_client:hover
+
+	#client_container
+		text-align: left
+		@include smooth_div()
+		@include box(horizontal)
+		margin-left: 260px
+		#client_description
+
+			@include box(horizontal)
+
+			#client_infos
+
+				label
+					border-radius: 5px
+					padding: 3px 5px
+					background-color: rgba(0,0,0,0.5)
+					color: rgba(255,255,255,0.8)
+
+				#change_client
+					@include box(horizontal)
+					@include box_align(center)
+					Select
+						margin-left: 20px
+					input
+						margin-left: 20px
+
+			#work_switch
+				@include box(horizontal)
+				@include box_align(end)
+
+				.start_work
+					margin-right: 20px
+				.end_work
+
+	#all_sessions
+		text-align: left
+		@include box(vertical)
+		@include smooth_div()
+		
+		margin: 30px 0px 0px 10%
+		padding: 30px
+
+		table
+			border-spacing: 20px 5px

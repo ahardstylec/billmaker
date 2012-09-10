@@ -1,0 +1,91 @@
+h1 {
+  width: auto; }
+
+h2 {
+  width: auto; }
+
+h3 {
+  width: auto; }
+
+h4 {
+  width: auto; }
+
+a {
+  text-decoration: none;
+  background: transparent; }
+
+a:hover {
+  background: transparent; }
+
+body {
+  background-image: url("/images/background.jpg"); }
+
+#content_head #client_container {
+  text-align: left;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  margin-left: 260px; }
+  #content_head #client_container #client_description {
+    display: box;
+    display: -moz-box;
+    display: -webkit-box;
+    box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-box-orient: horizontal; }
+    #content_head #client_container #client_description #client_infos label {
+      border-radius: 5px;
+      padding: 3px 5px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: rgba(255, 255, 255, 0.8); }
+    #content_head #client_container #client_description #client_infos #change_client {
+      display: box;
+      display: -moz-box;
+      display: -webkit-box;
+      box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      -webkit-box-orient: horizontal;
+      box-align: center;
+      -moz-box-align: center;
+      -webkit-box-align: center; }
+      #content_head #client_container #client_description #client_infos #change_client Select {
+        margin-left: 20px; }
+      #content_head #client_container #client_description #client_infos #change_client input {
+        margin-left: 20px; }
+    #content_head #client_container #client_description #work_switch {
+      display: box;
+      display: -moz-box;
+      display: -webkit-box;
+      box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      -webkit-box-orient: horizontal;
+      box-align: end;
+      -moz-box-align: end;
+      -webkit-box-align: end; }
+      #content_head #client_container #client_description #work_switch .start_work {
+        margin-right: 20px; }
+#content_head #all_sessions {
+  text-align: left;
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  margin: 30px 0px 0px 10%;
+  padding: 30px; }
+  #content_head #all_sessions table {
+    border-spacing: 20px 5px; }

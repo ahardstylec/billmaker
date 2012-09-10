@@ -1,11 +1,13 @@
 #bills
-	#bills_head
-		%h4= "Bills for#{@client.company}"
 	#bills_content	
+		
+		#bills_head
+			%h4= "Bills for: #{@client.company}"
 		%table
 			%tr
-				%th="id"
+				%th="Rechnungsnummer"
 				%th="Zeitraum"
+				%th="Stunden"
 				%th="Endgeld"
 				%th="Aktionen"
-			=render partial: "/bills/bill", collection: @bills
+			=partial "/bills/bill", collection: @bills

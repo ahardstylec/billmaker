@@ -18,6 +18,10 @@ class WorkSession
   def only_one_active_session
 
   end
+
+  def worktime
+    return (self.ende - self.start)
+  end
   
   timestamps!
 end

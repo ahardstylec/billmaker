@@ -1,0 +1,83 @@
+h1 {
+  width: auto; }
+
+h2 {
+  width: auto; }
+
+h3 {
+  width: auto; }
+
+h4 {
+  width: auto; }
+
+a {
+  text-decoration: none;
+  background: transparent; }
+
+a:hover {
+  background: transparent; }
+
+body {
+  background-image: url("/images/background.jpg"); }
+
+#Clients_from_account {
+  text-align: center; }
+  #Clients_from_account #show_all_clients {
+    text-align: left;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    display: box;
+    display: -moz-box;
+    display: -webkit-box;
+    box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    margin: 20px auto; }
+    #Clients_from_account #show_all_clients table {
+      margin-top: 20px;
+      border-collapse: collapse; }
+      #Clients_from_account #show_all_clients table td.last {
+        display: box;
+        display: -moz-box;
+        display: -webkit-box;
+        box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        -webkit-box-orient: horizontal; }
+        #Clients_from_account #show_all_clients table td.last delete_button {
+          margin-left: 5px; }
+      #Clients_from_account #show_all_clients table tr.status_true {
+        padding: 3px;
+        border-radius: 3px;
+        background-color: rgba(0, 0, 100, 0.2); }
+      #Clients_from_account #show_all_clients table td, #Clients_from_account #show_all_clients table th {
+        padding: 3px 0px;
+        padding-left: 20px; }
+      #Clients_from_account #show_all_clients table td.first, #Clients_from_account #show_all_clients table th.first {
+        padding-left: 0px; }
+
+#new_client_container {
+  text-align: center; }
+  #new_client_container #new_client_content {
+    display: box;
+    display: -moz-box;
+    display: -webkit-box;
+    box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left; }
+    #new_client_container #new_client_content input[type=text] {
+      width: 12em; }
+    #new_client_container #new_client_content input[type=text].pay {
+      width: 2.5em; }
+    #new_client_container #new_client_content input[type=text].plz {
+      width: 2.5em; }
