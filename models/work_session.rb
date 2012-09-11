@@ -1,6 +1,7 @@
 class WorkSession
   include MongoMapper::Document
 
+
   # key <name>, <type>
   key :date, Date, default: Date.today
   key :description, String
@@ -10,17 +11,10 @@ class WorkSession
   key :ende, Time
   key :profit, Float, default: 0.0
 
-  belongs_to :client
   belongs_to :bill
 
-  validate :only_one_active_session
-
-  def only_one_active_session
-
-  end
-
   def worktime
-    return (self.ende - self.start)
+    return ((self.ende.to_f - self.start.to_f)/3600).round(2)
   end
   
   timestamps!

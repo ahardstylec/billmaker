@@ -11,15 +11,22 @@ class Client
   key :pay , Float
   key :status, Boolean
 
-  many :work_sessions
   many :bills
   belongs_to :account
   timestamps!
 
   
   def session_start
-    session = self.work_sessions.where(active: true).first
-    session.start
+    session = self.current_bill.current_session
+    if session
+      return session.start
+    else
+      return 0.0
+    end
+  end
+
+  def current_bill
+    self.bills.sort("date.desc").first
   end
 
 end

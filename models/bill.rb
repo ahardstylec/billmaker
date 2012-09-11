@@ -2,20 +2,22 @@ class Bill
   include MongoMapper::Document
 
   # key <name>, <type>
-  key :month, Integer, default: 0
-  key :year, Integer, default: 0
+  key :date, Time
   key :steuerid, Integer, default: 0
   key :billnr, String, default: ""
   key :bill, Float, default: 0.0
-
 
   belongs_to :client
   many :work_sessions
 
   before_create :inc_nr
 
+  def current_session
+    self.work_sessions.where(active: true).first
+  end
+
   def inc_nr
-    self.billnr  = (Bill.all.count+1).to_s+"/"+self.year.to_s
+    self.billnr  = (Bill.all.count+1).to_s+"/"+self.date.year.to_s
   end
 
   def get_hours

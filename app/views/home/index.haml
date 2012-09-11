@@ -8,19 +8,20 @@
 		#client_container
 			.content
 				=partial "/clients/activeclient", object: @client	
-		#all_sessions
-			%h3="All Work Sessions for "+@client.company
-			%table
-				%tr
-					%th="Date"
-					%th="Description"
-					%th="Begin"
-					%th="Ende"
-					%th="Arbeitszeit"
-					%th="Lohn"
-				-if @work_sessions	
-					=partial "/work_sessions/session", collection: @work_sessions
-				-else
+		#all_sessions_wrapper
+			#all_sessions
+				%h3="All Work Sessions for "+@client.company
+				%table
 					%tr
-						%td{colspan: 6}="Keine Sessions vorhanden"
+						%th="Date"
+						%th="Description"
+						%th="Begin"
+						%th="Ende"
+						%th="Arbeitszeit"
+						%th="Lohn"
+					-if @work_sessions	
+						=partial "/work_sessions/session", collection: @work_sessions
+					-else
+						%tr
+							%td{colspan: 6}="Keine Sessions vorhanden"
 						

@@ -34,14 +34,14 @@
 				=hidden_field_tag :activesession, id: :activesession, value: ""
 	#work_switch
 		-if @activesession
-			=form_tag "clients/start_work", remote: true, id: :start_form do
+			=form_tag "bills/start_work", remote: true, id: :start_form do
 				=link_to "<img src='images/bussy64.png' class='start_img' data-other-src='images/start64.png' />","", class: :start_work
-			=form_tag "clients/end_work", remote: true, id: :end_form do
+			=form_tag "bills/end_work", remote: true, id: :end_form do
 				=link_to "<img src='images/finish64.png' class='end_img' data-other-src='images/bussy64.png' />","", class: :end_work
 		-else
-			=form_tag "clients/start_work", remote: true, id: :start_form do
+			=form_tag "bills/start_work", remote: true, id: :start_form do
 				=link_to "<img src='images/start64.png' class='start_img' data-other-src='images/bussy64.png' />","", class: :start_work
-			=form_tag "clients/end_work", remote: true, id: :end_form do
+			=form_tag "bills/end_work", remote: true, id: :end_form do
 				=link_to "<img src='images/bussy64.png' class='end_img' data-other-src='images/finish64.png' />","", class: :end_work
 
 :javascript

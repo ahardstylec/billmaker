@@ -10,8 +10,8 @@ Billmaker.helpers do
 		cw = "<p id='worksession_infos_inner'>"
 		cw += "<p>Aktuelle Work Session:</p><p>Begin:"
 		cw += worksession.start.to_s+"</p>"+"<br />Abgelaufene Zeit: <span id='tick'></span>"
-		cw +="<br>Aktuelles Entgeld fuer Session:"
-		cw +=(((worksession.start.to_i-Time.now.to_i)/3600)*worksession.client.pay).to_s+"</p>"
+		cw +="<br>Aktuelles Entgeld fuer Session: "
+		cw +="<span class='money'>"+(((worksession.start.to_f-Time.now.to_f)/3600)*worksession.bill.client.pay).round(2).to_s+"</span></p>"
 		cw += '<input type="hidden" id="activesession" name="activesession" value="'+worksession.id.to_s+'" />'
 		cw.html_safe
 	end

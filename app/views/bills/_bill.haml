@@ -1,9 +1,9 @@
 %tr
-	%td=bill.billnr
-	%td=bill.month.to_s+"."+bill.year.to_s
-	%td=bill.get_hours
-	%td=bill.bill
+	%td=link_to bill.billnr.to_s, url(:bills, :show, id: bill.id)
+	%td=bill.date.mon.to_s+"."+bill.date.year.to_s
+	%td=bill.get_hours.round(2)
+	%td=bill.bill.round(2)
 	%td.last
 		=button_tag "pdf", onclick: "printBill()"
 		=button_to "edit", url(:bills, :edit, id: bill.id), method: :get
-		=button_to "delete", url(:bills, :destroy, id: bill.id), method: :delete, onclick: "return sure?()"
+		=button_to "delete", url(:bills, :destroy, id: bill.id), method: :delete, onclick: "return confirm();"

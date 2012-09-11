@@ -6,8 +6,10 @@
 		=stylesheet_link_tag 'application'
 		=stylesheet_link_tag 'bill'
 		=stylesheet_link_tag 'client'
+		=stylesheet_link_tag 'jquery-ui'
 
 		=javascript_include_tag 'jquery'
+		=javascript_include_tag 'jquery-ui'
 		=javascript_include_tag 'bill'
 		=javascript_include_tag 'home'
 		-# =stylesheet_link_tag 'application_login', 'application', 'layout'
@@ -27,7 +29,8 @@
 					.logout
 						=form_tag url(:login, :destroy), method: :delete do
 							=submit_tag :logout
-		#head_end					
+		#head_end	
+		#ajax_container				
 		%container
 			%menu
 			%content

@@ -24,7 +24,7 @@ start_work = function(event){
 	$(".start_work").attr("disabled", "disabled");
 	$(".start_img").attr('src','images/bussy64.png');
 
-	$.post("clients/start_work.json",{client: $("select#clients").val()},function(data){
+	$.post("bills/start_work.json",{client: $("select#clients").val()},function(data){
 		$("#worksession_infos").html(data.html);
 		sessionstart = new Date();
 		show_timer();
@@ -32,13 +32,14 @@ start_work = function(event){
 };
 
 end_work = function(event){
+	event.preventDefault();
 	$(".end_img").attr('src','images/bussy64.png');
 	$(".end_work").attr("disabled", "disabled");
 
 	$(".start_img").attr('src','images/start64.png');
 	$(".start_work").attr("disabled", "");
 	var id = $("#activesession").val();
-	$.post("clients/end_work",{id: id},function(data){
+	$.post("bills/end_work",{id: id},function(data){
 		$("#worksession_infos").html("Gerade ist keine Work Session aktiv");
 	});
 };
@@ -49,7 +50,7 @@ show_timer = function(){
 	var money;
 	var worktime = "";
 	jQuery.ajaxSetup({async:false});
-	$.get("/clients/get_session_start.json",{},function(data){
+	$.get("/bills/get_session_start.json",{},function(data){
 		start =  data.sessionstart;
 		worktime = data['working_time'];
 		money = data.money;
@@ -58,11 +59,5 @@ show_timer = function(){
 	// alert("");
 	thelement.html("<b style='font-size:14;color:blue;'>"+worktime+"</b>");
 	$(".money").html(money);
-	setTimeout("show_timer()",1000);
+	setTimeout("show_timer()",5000);
 }
-
-// get_sessionstart = function(){
-// 	return $.get("/clients/get_session_start.json",{},function(data){
-// 		return data
-// 	})
-// }

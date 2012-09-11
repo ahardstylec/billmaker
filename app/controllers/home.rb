@@ -20,9 +20,11 @@ Billmaker.controllers :home do
 
   get :index, map: "/" do
     @client = current_account.clients.where(status: true).first || current_account.clients.first
-    @work_sessions = @client.work_sessions.sort(:active.desc ) if @client
-    @activesession = @work_sessions.first(active: true) if @work_sessions
-    
+    @bill = @client.bills.sort("date.desc").first
+    if @bill
+      @work_sessions = @bill.work_sessions
+      @activesession = @bill.current_session
+    end
     render "home/index"
   end
   
