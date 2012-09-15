@@ -6,4 +6,4 @@
 	%td.last
 		=button_tag "pdf", onclick: "printBill()"
 		=button_to "edit", url(:bills, :edit, id: bill.id), method: :get
-		=button_to "delete", url(:bills, :destroy, id: bill.id), method: :delete, onclick: "return confirm();"
+		=button_tag "delete", onclick: "deleteBill()", id: bill.id

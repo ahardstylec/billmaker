@@ -15,9 +15,10 @@ Billmaker.controllers :bills do
 	end
 
 	get :show, map: "bills/show/:id" do
+
 	end
 
-	delete :destroy, map: "bills/destroy/:id" do 
+	post :destroy, map: "bills/destroy" do 
 		@bill = Bill.find(params[:id])
 		@client = current_account.clients.where(status: true).first
 		@bills = @client.bills
