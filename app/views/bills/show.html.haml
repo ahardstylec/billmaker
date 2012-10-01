@@ -1,0 +1,29 @@
+#bill
+	#bill_header
+		%p
+			=label_tag :steuernummer
+			%span= @bill.steuerid.to_s
+		%p
+			=label_tag :datum
+			%span= @bill.date.strftime("%m %Y")
+		%p
+			=label_tag "Stundenlohn"
+			%span= @bill.client.pay.to_s
+	#bill_content
+		%table
+			%thead
+				%tr
+					%th= "Datum"
+					%th= "Beschreibung der Tätikeit" 
+					%th= "Stunden"
+					%th= "Entlohnung"
+			%tbody
+				-@bill.work_sessions.each do |session|
+					%tr
+						%td=session.date
+						%td=session.description
+						%td=((session.ende - session.start)/3600).round(2).to_s
+						%td=session.profit.round(2).to_s+"€"
+		%p.wrap-up
+		%p
+			=""

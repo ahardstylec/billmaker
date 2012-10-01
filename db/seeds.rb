@@ -27,4 +27,4 @@ end
 
 shell.say ""
 
-Account.new({email: "andi@billmaker.de",name: "andi" ,surname: "collmann", passoword: "123456", password_confirmation: "123456", role: "user"})
+Account.new({email: "andi@billmaker.de",name: "andi" ,surname: "collmann", password: "123456", password_confirmation: "123456", role: "user"}).save

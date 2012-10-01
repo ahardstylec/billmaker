@@ -31,11 +31,11 @@ Billmaker.controllers :clients do
 		render "clients/edit"
 	end
 
-	put :update do 
+	put :update, map: "clients/update/:id" do
+		puts params
 		@client = Client.find(params[:id])
-		 if @client.update_attributes[params[:client]]
-		 	@clients = current_account.clients
-		 	render "clients/index"
+		 if @client.update_attributes(params[:client])
+		 	redirect "clients/"
 		 else
 		 	render "clients/edit"
 		 end
@@ -56,7 +56,6 @@ Billmaker.controllers :clients do
 
 	post :create_client_for_user do
 		@client = Client.new(params[:client])
-
 		if @client.save
 			current_account.clients << @client
 			flash[:notice] = "client successfully created"

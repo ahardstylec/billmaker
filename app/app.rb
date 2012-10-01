@@ -5,13 +5,17 @@ class Billmaker < Padrino::Application
   register Padrino::Routing
   register Padrino::Helpers
   register Padrino::Admin::AccessControl
+  register Padrino::Mailer
+  # register MongoAutoincrement
 
   
 
   enable :sessions
-  require 'awesome_print' 
+  require 'awesome_print'
+  require 'pony'
   require 'magic_encoding'
   
+
   # -*- encoding : utf-8 -*-
   #require "pony"
 
@@ -21,6 +25,8 @@ class Billmaker < Padrino::Application
   # set :raise_errors, true       # Raise exceptions (will stop application) (default for test)
   # set :dump_errors, true        # Exception backtraces are written to STDERR (default for production/development)
   # set :show_exceptions, true    # Shows a stack trace in browser (default for development)
+
+
   # set :logging, true            # Logging in STDOUT for development and file for production (default only for development)
   # set :public_folder, "foo/bar" # Location for static assets (default root/public)
   # set :reload, false            # Reload application files (default in development)
@@ -52,6 +58,29 @@ class Billmaker < Padrino::Application
   #   end
   #
 
+#ap current_account
+set :delivery_method, :smtp => { 
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => 'andreas.collmann@googlemail.com',
+  :password             => '87520Fovsgma#',
+  :authentication       => :plain,
+  :enable_starttls_auto => true  
+}
+
+# Pony.options = {  :via => :smtp,
+#                   :from => "admin@billmaker.de",
+#                   :via_options => {
+#                      :port => '587', 
+#                      :enable_starttls_auto => true,
+#                      :address => "smtp.gmail.com",
+#                      :user_name => "andreas.collmann@googlemail.com",
+#                      :password => "87520Fovsgma#",
+#                      :authentication => :plain,
+#                      :domain => "localhost.localdomain"
+#                     } 
+#                   }
+
   enable :authentication
   enable :store_location
   set    :login_page, "/login/new"
@@ -70,6 +99,9 @@ class Billmaker < Padrino::Application
     role.allow "/bills/create"
     role.allow "/bills/edit"
     role.allow "/login/destroy"
+    role.allow "/accounts/edit_settings"
+    role.allow "/accounts/set_email_active"
+    role.allow "/accounts/save_email_setting"
   end  
 
   access_control.roles_for :admin do |role|

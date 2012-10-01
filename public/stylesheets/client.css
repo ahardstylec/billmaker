@@ -21,7 +21,7 @@ body {
   background-image: url("/images/background.jpg"); }
 
 #Clients_from_account {
-  text-align: center; }
+  margin-left: 260px; }
   #Clients_from_account #show_all_clients {
     text-align: left;
     border-radius: 10px;

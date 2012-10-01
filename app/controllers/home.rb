@@ -20,7 +20,7 @@ Billmaker.controllers :home do
 
   get :index, map: "/" do
     @client = current_account.clients.where(status: true).first || current_account.clients.first
-    @bill = @client.bills.sort("date.desc").first
+    @bill = @client.bills.sort("date.desc").first if @client
     if @bill
       @work_sessions = @bill.work_sessions
       @activesession = @bill.current_session

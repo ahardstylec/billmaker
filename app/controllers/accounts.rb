@@ -35,6 +35,20 @@ Billmaker.controllers :accounts do
     end
   end
 
+  get :edit_settings do
+    @emailsetting = current_account.emailsetting || Emailsetting.new()
+    render "accounts/edit_settings"
+  end
+
+  post :save_email_setting do
+    @emailsetting = current_account.emailsetting || Emailsetting.create(account_id: current_account.id)
+    if @emailsetting.update_attributes(params[:emailsetting])
+      redirect url(:home, :index)
+    else
+      render "accounts/edit_settings"
+    end
+  end
+
   delete :destroy, :with => :id do
     account = Account.find(params[:id])
     if account != current_account && account.destroy
@@ -43,5 +57,14 @@ Billmaker.controllers :accounts do
       flash[:error] = 'Unable to destroy Account!'
     end
     redirect url(:accounts, :index)
+  end
+
+  post "set_email_active" do
+    @user = current_account
+    ap params 
+    @user.settings[:email_active] = "checked" == params[:checked] ? true : false
+    if @user.save
+      print "active mail saved"
+    end
   end
 end

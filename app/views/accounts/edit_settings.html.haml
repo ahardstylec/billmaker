@@ -1,0 +1,33 @@
+#settings
+	#email_settings
+		#email_active
+			="Email senden activ?"
+			=check_box_tag :mail,id: :mail, onclick: "change_mail_activ()"
+		%h3 Smtp settings
+		-form_for @emailsetting, url(:accounts, :save_email_setting), remote: true do |f|
+			%table
+				%tr
+					%td=f.label :address
+					%td=f.text_field :address
+				%tr
+					%td=f.label :port
+					%td=f.text_field :port
+				%tr
+					%td=f.label :user_name
+					%td=f.text_field :user_name
+				%tr
+					%td=f.label :password
+					%td=f.password_field :password
+				%tr
+					%td=f.label :authentication
+					%td=f.select :authentication, options: [[:plain,:plain],[:login,:login],[:none,:none]]
+				%tr
+					%td=f.label :enable_starttls_auto
+					%td=f.check_box :enable_starttls_auto
+			=f.submit "save"
+-if current_account.settings[:email_active]
+	:javascript
+		$("#mail").attr('checked',true)
+-else
+	:javascript
+		$("#mail").attr('checked',false)

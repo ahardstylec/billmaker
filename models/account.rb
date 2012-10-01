@@ -8,8 +8,10 @@ class Account
   key :email,            String
   key :crypted_password, String
   key :role,             String
+  key :settings,         Hash, default: {email_active: false}
 
   many :clients
+  one :emailsetting
 
   # Validations
   validates_presence_of     :email, :role
@@ -21,7 +23,7 @@ class Account
   validates_uniqueness_of   :email,    :case_sensitive => false
   validates_format_of       :email,    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_format_of       :role,     :with => /[A-Za-z]/
-  validate :val_one_active_client
+  #validate :val_one_active_client
 
   # Callbacks
   before_save :encrypt_password, :if => :password_required
@@ -32,6 +34,10 @@ class Account
 
   def current_client
     self.clients.where(status: true).first
+  end
+
+  def current_bill
+    self.current_client.current_bill
   end
 
   def self.authenticate(email, password)

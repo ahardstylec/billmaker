@@ -16,12 +16,12 @@
 		%td.label=f.label :city
 		%td=f.text_field :city			
 	%tr
+		%td.label=f.label :mail
+		%td=f.text_field :mail 
+	%tr
 		%td.label=f.label :pay
 		%td
 			=f.text_field :pay, class: :pay
 			="€"
-	%tr
-		%td.label=f.label :status
-		%td=f.check_box :status
 %p
 	=f.submit

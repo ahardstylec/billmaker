@@ -19,6 +19,9 @@ gem 'pony'
 gem 'bson_ext', :require => "mongo"
 gem 'actionpack'
 gem 'magic_encoding'
+gem 'pony'
+
+
 # Test requirements
 
 # Padrino Stable Gem

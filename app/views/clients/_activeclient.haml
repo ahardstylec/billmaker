@@ -6,11 +6,19 @@
 				=select_tag(:clients, options: current_account.clients.sort(:status).collect{ |client| [client.company, client.id] }, id: :clients)
 			#button
 				=button_tag "set as current client", onclick: "change_current_client()"
-		%p="Firmenname: "+label_tag(activeclient.company) 
-		%p="Straße, Hausnummer: "+label_tag(activeclient.street)
-		%p="Postleitzahl Ort: "+label_tag(activeclient.plz+" "+activeclient.city)
+		%p
+			=label_tag("Firmenname")
+			%span.content_tag=activeclient.company
+		%p
+			=label_tag("Straße, Hausnummer")
+			%span.content_tag=activeclient.street
+		%p
+			=label_tag("Postleitzahl Ort)")
+			%span.content_tag=activeclient.plz+" "+activeclient.city
 
-		%p="Lohn "+label_tag(activeclient.pay.to_s+"€")
+		%p
+			=label_tag("Lohn")
+			%span.content_tag= activeclient.pay.to_s+"€"
 		#worksession_infos
 			-if @activesession
 				%p#worksession_infos_inner

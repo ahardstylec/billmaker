@@ -1,8 +1,10 @@
 #end_work_wrapper{title: "End Work"}
 	#end_work_container
-		%h4= "ending work at: "+Time.now.to_s
-		-form_for @worksession, url(:bills, :end_work_handler, id: @worksession.id), method: :put, remote: true do |w|
-			=w.label :description
-			=w.submit, class: :button
-			=button_tag "cancel", onclick: "close_end_work_handler()"
-
+		%h4= "ending work at: "+@t.strftime("%R")
+		-form_for @worksession, url(:bills, :end_work_handler, id: @worksession.id), method: :put do |w|
+			%p
+				=w.label :description
+				=w.text_field :description
+			%p
+				=w.submit "End Work", class: :button
+				=button_tag "cancel", onclick: "close_end_work_handler()"

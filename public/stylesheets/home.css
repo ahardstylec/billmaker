@@ -41,7 +41,7 @@ body {
     box-orient: horizontal;
     -moz-box-orient: horizontal;
     -webkit-box-orient: horizontal; }
-    #content_head #client_container #client_description #client_infos label {
+    #content_head #client_container #client_description #client_infos .content_tag {
       border-radius: 5px;
       padding: 3px 5px;
       background-color: rgba(0, 0, 0, 0.5);

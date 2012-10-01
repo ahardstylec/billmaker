@@ -51,3 +51,39 @@ body {
         margin-right: 5px; }
       #bills #bills_content td.last input[type=button] {
         margin-right: 5px; }
+
+#bills_edit {
+  margin-left: 260px;
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  box-align: left;
+  -moz-box-align: left;
+  -webkit-box-align: left; }
+
+#bill {
+  display: box;
+  display: -moz-box;
+  display: -webkit-box;
+  box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+  margin-left: 260px; }
+  #bill td, #bill th {
+    text-align: left;
+    padding-left: 10px; }
+  #bill .wrap-up {
+    border: 2px solid rgba(0, 0, 0, 0.5); }

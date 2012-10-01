@@ -2,7 +2,7 @@
 	%td.first=client.company
 	%td=client.street+" "+client.plz+" "+client.city
 	%td=client.pay.to_s+"€"
-	%td= client.status
+	%td=client.mail
 	%td.last
 		=button_to :edit, url(:clients, :edit, id: client.id), method: :get, :class => :button_to, remote: true
 		=button_to :delete, url(:clients, :destroy, id: client.id), method: :delete, class: [:button_to, :delete_button]

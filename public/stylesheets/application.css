@@ -72,7 +72,7 @@ body {
     box-align: center;
     -moz-box-align: center;
     -webkit-box-align: center; }
-    #head #head_logout_content .accountname {
+    #head #head_logout_content .accountname a {
       margin-right: 10px;
       color: rgba(0, 179, 0, 0.7); }
 

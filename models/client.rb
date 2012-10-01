@@ -1,6 +1,6 @@
 class Client
   include MongoMapper::Document
-   attr_accessible :status
+   #attr_accessible :status
   
   # key <name>, <type>
   key :street, String
@@ -10,6 +10,7 @@ class Client
   key :company, String
   key :pay , Float
   key :status, Boolean
+  key :mail, String
 
   many :bills
   belongs_to :account

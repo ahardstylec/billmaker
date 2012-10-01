@@ -1,11 +1,12 @@
 class Bill
   include MongoMapper::Document
+  include MongoAutoincrement
 
   # key <name>, <type>
   key :date, Time
   key :steuerid, Integer, default: 0
-  key :billnr, String, default: ""
   key :bill, Float, default: 0.0
+  has_autoincrement :billnr
 
   belongs_to :client
   many :work_sessions

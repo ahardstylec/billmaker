@@ -1,5 +1,7 @@
 #bills_edit
+	%nav
+		=button_to "zurück", url(:bills, :index), method: :get, class: :button
 	#bills_edit_content
-		%h4="Bill: "+@bill.billnr
-		-form_for @bill, url(:bills, :update, id: @bill.id) do |f|
+		%h4="Bill: "+@bill.billnr.to_s
+		-form_for @bill, url(:bills, :update, id: @bill.id), method: :put do |f|
 			=partial "bills/form", locals: {f: f}
