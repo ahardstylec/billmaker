@@ -1,0 +1,32 @@
+!!! Strict
+%html{:lang => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+	%head
+		=stylesheet_link_tag 'general'
+		=stylesheet_link_tag 'home'
+		=stylesheet_link_tag 'application'
+		=stylesheet_link_tag 'bill'
+		=stylesheet_link_tag 'client'
+		=stylesheet_link_tag 'jquery-ui'
+		=stylesheet_link_tag 'account'
+	%body
+		#head
+
+			#head_logout
+		#head_end	
+		%container
+			%content
+				=yield
+:plain
+	<script type="text/javascript" src="https://www.google.com/jsapi">
+	</script>
+	<script type="text/javascript">
+		google.load("webfont", "1");
+		google.setOnLoadCallback(function() {
+			WebFont.load({
+			  google: {
+				families: [ 'Headland One','Terminal Dosis','Special Elite' ]
+			  }
+			  });
+			});
+	</script>
+

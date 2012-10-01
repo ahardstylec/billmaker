@@ -16,19 +16,21 @@ Billmaker.controllers :bills do
 
 	get :show, map: "bills/show/:id", provides: [:pdf, :html] do
 		@bill = Bill.find(params[:id])
-		case content_type
-      		when :html  
+
+      	case content_type
+      		when :html
       			render "bills/show.html"
       		when :pdf
-      			render "bills/show.pdf"
+		      	html = render "bills/show.pdf", layout: 'application_pdf'
+				PDFKit.new(html, :page_size => 'Letter')
     	end
 	end
 
-	post :destroy, map: "bills/destroy/:id" do 
+	post :destroy, with: :id do 
 		@bill = Bill.find(params[:id])
 		@client = current_account.clients.where(status: true).first
-		@bills = @client.bills
 		@bill.destroy
+		@bills = @client.bills
 		render "bills/index"
 	end
 

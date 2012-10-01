@@ -85,6 +85,7 @@ GEM
     padrino-mailer (0.10.7)
       mail (~> 2.3.0)
       padrino-core (= 0.10.7)
+    pdfkit (0.5.2)
     plucky (0.5.1)
       mongo (~> 1.5)
     polyglot (0.3.3)
@@ -122,6 +123,7 @@ GEM
       polyglot (>= 0.3.1)
     url_mount (0.2.1)
       rack
+    wkhtmltopdf-binary (0.9.9.1)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -138,7 +140,9 @@ DEPENDENCIES
   magic_encoding
   mongo_mapper
   padrino (= 0.10.7)
+  pdfkit
   pony
   rake
   sass
   sinatra-flash
+  wkhtmltopdf-binary

@@ -2,9 +2,9 @@ function printBill(){
 	print();
 }
 
-function deleteBill(){
-
+function deleteBill(id){
+	var bill = id;
 	if(confirm("Wirklich löschen?")){
-		$.post("/bills/destroy",{id: $(this).attr('id')},function(data){});
+		$.post("/bills/destroy/"+bill,{id: bill},function(data){});
 	}
 }

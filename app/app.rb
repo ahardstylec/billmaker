@@ -6,7 +6,6 @@ class Billmaker < Padrino::Application
   register Padrino::Helpers
   register Padrino::Admin::AccessControl
   register Padrino::Mailer
-  # register MongoAutoincrement
 
   
 
@@ -14,7 +13,12 @@ class Billmaker < Padrino::Application
   require 'awesome_print'
   require 'pony'
   require 'magic_encoding'
-  
+  require 'pdfkit'
+
+  Padrino.middleware do |app|
+    app.use PDFkit::Middleware
+  end
+
 
   # -*- encoding : utf-8 -*-
   #require "pony"
@@ -67,20 +71,6 @@ set :delivery_method, :smtp => {
   :authentication       => :plain,
   :enable_starttls_auto => true  
 }
-
-# Pony.options = {  :via => :smtp,
-#                   :from => "admin@billmaker.de",
-#                   :via_options => {
-#                      :port => '587', 
-#                      :enable_starttls_auto => true,
-#                      :address => "smtp.gmail.com",
-#                      :user_name => "andreas.collmann@googlemail.com",
-#                      :password => "87520Fovsgma#",
-#                      :authentication => :plain,
-#                      :domain => "localhost.localdomain"
-#                     } 
-#                   }
-
   enable :authentication
   enable :store_location
   set    :login_page, "/login/new"
@@ -98,6 +88,7 @@ set :delivery_method, :smtp => {
     role.allow "clients"
     role.allow "/bills/create"
     role.allow "/bills/edit"
+    role.allow "/bills/destroy"
     role.allow "/login/destroy"
     role.allow "/accounts/edit_settings"
     role.allow "/accounts/set_email_active"

@@ -20,6 +20,8 @@ gem 'bson_ext', :require => "mongo"
 gem 'actionpack'
 gem 'magic_encoding'
 gem 'pony'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 
 # Test requirements
